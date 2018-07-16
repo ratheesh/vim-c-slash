@@ -26,4 +26,9 @@ if cnt < (end - start + 1) / 2:
 EOF
 endfunction
 
-vnoremap <C-\> :<c-u>call ToggleSlash()<cr>
+" call tabular align function if present to align backslashes
+if exists('g:tabular_loaded')
+    vnoremap <C-\> :<c-u>call ToggleSlash()<CR> \| :<c-u>Tabularize /\\$<CR>
+else
+    vnoremap <C-\> :<c-u>call ToggleSlash()<CR>
+endif
