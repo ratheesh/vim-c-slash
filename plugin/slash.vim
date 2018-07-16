@@ -6,6 +6,7 @@ buffer = vim.current.buffer
 
 start, _ = buffer.mark('<')
 end, _ = buffer.mark('>')
+end-=1
 
 cnt = 0
 for i in range(start - 1, end):
